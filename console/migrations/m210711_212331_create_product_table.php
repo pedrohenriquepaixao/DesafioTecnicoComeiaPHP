@@ -22,10 +22,10 @@ class m210711_212331_create_product_table extends Migration
             'updated_at' => $this->integer()->notNull(),
         ]);
 
-        $this->createIndex('idx-product', '{{%product}}', 'created_by');
+        $this->createIndex('idx-product-created_by', '{{%product}}', 'created_by');
         $this->addForeignKey('fk-product-created_by', '{{%product}}', 'created_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
 
-        $this->createIndex('idx-product', 'product', 'updated_by');
+        $this->createIndex('idx-product-updated_by', 'product', 'updated_by');
         $this->addForeignKey('fk-product-updated_by', '{{%product}}', 'updated_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
 
 
